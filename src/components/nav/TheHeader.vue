@@ -33,7 +33,7 @@ export default {
       return this.$store.getters.userIsAuthenticated;
     },
     cartQty() {
-      return this.$store.getters.cartQuantity;
+      return this.$store.getters['cart/cartQuantity'];
     }
   },
   methods: {

@@ -1,19 +1,7 @@
-import { createStore } from 'vuex';
-
-import rootActions from './actions';
-import rootGetters from './getters';
-import rootMutations from './mutations';
-import cartModule from './modules/cart.js';
-import productsModule from './modules/products';
-
-const store = createStore({
-  modules: {
-    cart: cartModule,
-    prods: productsModule,
-  },
+export default {
+  namespaced: true,
   state() {
     return {
-      isLoggedIn: false,
       products: [
         {
           id: 'p1',
@@ -44,9 +32,7 @@ const store = createStore({
       ],
     };
   },
-  actions: rootActions,
-  getters: rootGetters,
-  mutations: rootMutations,
-});
-
-export default store;
+  getters: {
+    products: (state) => state.products,
+  },
+};
